@@ -1,7 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import  VueFeather from "vue-feather"
+// import Unicon from 'vue-unicons'
+// import {  uniGlobe, uniPhone, uniEnvelope, uniUser, uniBag,uniGraduationCap } from 'vue-unicons/dist/icons'
 
-createApp(App).mount('#app')
-App.component(VueFeather.name,VueFeather)
+// Unicon.add([ uniGlobe, uniPhone, uniEnvelope, uniUser, uniBag,uniGraduationCap])
+
+import router from "./router";
+
+createApp(App).use(router).mount('#app')
+
 

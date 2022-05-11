@@ -1,12 +1,30 @@
-<script setup lang="ts">
+<script lang="ts">
   // This starter template is using Vue 3 <script setup> SFCs
   // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
+  import { defineComponent } from "@vue/runtime-core";
   import DaniLanding from "./view/DaniLanding.vue";
+  import Brochure from "./view/Brochure.vue";
+
+  export default defineComponent({
+    setup() {
+      const navbar = {
+        HOME: "/",
+        BROCHURE: "/brochure",
+      };
+      return { navbar };
+    },
+    components: { Brochure, DaniLanding },
+  });
 </script>
 
 <template>
-  <DaniLanding />
+  <nav class="navbar-fixed">
+    <div class="navbar-item" v-for="(item, index) in navbar" :key="index">
+      <router-link :to="item">{{ index }}</router-link>
+    </div>
+  </nav>
+  <router-view />
 </template>
 
 <style>

@@ -14,13 +14,7 @@
       <div class="column-description-background">
         <div class="contact-info">
           <h3>CONTACT</h3>
-          <ul class="icons">
-            <li v-for="icon in icons" :key="icon">
-              <VueFeather :type="icon"></VueFeather>
-              <i data-feather="circle"></i>
-              <span>{{ icon }}</span>
-            </li>
-          </ul>
+
           <div
             class="contact-item"
             v-for="(item, index) in contact"
@@ -64,13 +58,11 @@
 
 <script lang="ts">
   import { defineComponent } from "vue";
-  import VueFeather from "vue-feather-icons";
 
   export default defineComponent({
     name: "FirstColumn",
-    components: VueFeather,
+
     setup() {
-      const icons = Object.keys(VueFeather);
       const contact = {
         address: "Calle 25 #35-39 Corferias Teusaquillo Bogotá, Colombia",
         phone: "+57 311 268 74 19",
@@ -94,7 +86,6 @@
         "Baile",
       ];
       return {
-        icons,
         contact,
         languages,
         interest,
@@ -106,7 +97,7 @@
 
 <style lang="scss" scoped>
   $h1-font-size: 54px;
-  $p-font-size: 12px;
+  $p-font-size: 15px;
   $h3-font-size: 16px;
   $h2-font-size: 32px;
   $background-column-color: #fad1ce;

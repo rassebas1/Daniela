@@ -2,6 +2,7 @@
   <div class="daniela-landing">
     <div class="landing-content">
       <FirstColumn />
+      <RigthColumn />
     </div>
   </div>
 </template>
@@ -9,9 +10,12 @@
 <script lang="ts">
   import { defineComponent } from "vue";
   import FirstColumn from "../components/FirstColumn.vue";
+  import RigthColumn from "../components/RigthColumn.vue";
+  import GlobeIcon from "../assets/GlobeIcon.vue";
 
   export default defineComponent({
     name: "DanielaLanding",
+    components: { FirstColumn, RigthColumn, GlobeIcon },
     setup() {
       const contact = {
         address: "Calle 25 #35-39 Corferias Teusaquillo Bogotá, Colombia",
@@ -42,8 +46,11 @@
         socialNetwork,
       };
     },
-    components: { FirstColumn },
   });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .landing-content {
+    display: flex;
+  }
+</style>
