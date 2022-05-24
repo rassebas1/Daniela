@@ -11,11 +11,10 @@
   import { defineComponent } from "vue";
   import FirstColumn from "../components/FirstColumn.vue";
   import RigthColumn from "../components/RigthColumn.vue";
-  import GlobeIcon from "../assets/GlobeIcon.vue";
 
   export default defineComponent({
     name: "DanielaLanding",
-    components: { FirstColumn, RigthColumn, GlobeIcon },
+    components: { FirstColumn, RigthColumn },
     setup() {
       const contact = {
         address: "Calle 25 #35-39 Corferias Teusaquillo Bogotá, Colombia",
@@ -52,5 +51,16 @@
 <style lang="scss" scoped>
   .landing-content {
     display: flex;
+    // width: 100vw;
+    height: 100%;
+  }
+  @media screen and (max-width: 640px) {
+    .landing-content {
+      // width: 100%;
+      margin: 0px;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>

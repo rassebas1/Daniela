@@ -18,10 +18,10 @@
           <div
             class="contact-item"
             v-for="(item, index) in contact"
-            v-bind:key="index"
+            v-bind:key="`index ${index}`"
           >
-            <img src="../assets/logo.png" alt="icon" />
-            <p>{{ item }}</p>
+            <vue-feather :type="item.icon"></vue-feather>
+            <p>{{ item.text }}</p>
           </div>
 
           <div
@@ -29,8 +29,8 @@
             v-for="(item, index) in socialNetwork"
             v-bind:key="index"
           >
-            <img src="../assets/logo.png" alt="icon" />
-            <a target="new" :href="item">{{ item }}</a>
+            <vue-feather :type="item.icon"></vue-feather>
+            <a target="new" :href="item.text">{{ item.name }}</a>
           </div>
           <h3>LANGUAGES</h3>
           <div
@@ -38,7 +38,15 @@
             v-for="(item, index) in languages"
             v-bind:key="index"
           >
-            <p>{{ index.toLocaleUpperCase() }}:{{ item }}</p>
+            <p>{{ index.toLocaleUpperCase() }}:</p>
+            <StarRating
+              :rating="item"
+              :star-size="20"
+              inactive-color="#7f7c7b"
+              active-color="#3c3c3b"
+              :read-only="true"
+              :increment="0.01"
+            ></StarRating>
           </div>
           <h3>INTERESTS</h3>
           <div class="interest-wrapper">
@@ -58,21 +66,40 @@
 
 <script lang="ts">
   import { defineComponent } from "vue";
+  // @ts-ignore
+  import StarRating from "vue-star-rating";
 
   export default defineComponent({
     name: "FirstColumn",
-
+    components: { StarRating },
     setup() {
-      const contact = {
-        address: "Calle 25 #35-39 Corferias Teusaquillo Bogotá, Colombia",
-        phone: "+57 311 268 74 19",
-        email: "daparoza@hotmail.com",
-      };
-      const socialNetwork = {
-        behance: "https://www.behance.net/danielarodrigu",
-        linkedIn:
-          "https://www.linkedin.com/in/daniela-patricia-rodriguez-zapata/",
-      };
+      const contact = [
+        {
+          text: "Calle 25 #35-39 Corferias Teusaquillo Bogotá, Colombia",
+          icon: "map-pin",
+        },
+        {
+          text: "+57 311 268 74 19",
+          icon: "phone",
+        },
+        {
+          text: "daparoza@hotmail.com",
+          icon: "mail",
+        },
+      ];
+
+      const socialNetwork = [
+        {
+          text: "https://www.behance.net/danielarodrigu",
+          icon: "globe",
+          name: "Behance",
+        },
+        {
+          text: "https://www.linkedin.com/in/daniela-patricia-rodriguez-zapata/",
+          icon: "linkedin",
+          name: "LinkedIn",
+        },
+      ];
       const languages = {
         spanish: 5,
         english: 2,
@@ -132,8 +159,14 @@
     .column-description {
       background-color: $background-column-color;
       padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
       .column-description-background {
         padding: 10px;
+        display: flex;
       }
       h2 {
         font-size: $h2-font-size;
@@ -143,9 +176,12 @@
         font-weight: 100;
       }
       p {
+        width: 90%;
         font-size: $p-font-size;
         font-family: "Lato", sans-serif;
         text-align: justify;
+        margin-top: 0px;
+        margin-bottom: 0px;
       }
     }
 
@@ -168,11 +204,11 @@
       }
       > .contact-item,
       > .social-item {
-        width: 100%;
-        height: 50px;
+        // width: 100%;
+        height: 35px;
         display: flex;
         align-content: center;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         flex-direction: row;
         margin-top: 4px;
@@ -182,11 +218,13 @@
           font-family: "Lato", sans-serif;
           text-align: center;
           margin-left: 4px;
+          margin-top: 0px;
+          margin-bottom: 0px;
         }
         a {
           font-size: $p-font-size;
           font-family: "Lato", sans-serif;
-          margin-left: 4px;
+          margin-left: 34px;
           text-align: left;
           text-decoration: none;
         }
@@ -197,22 +235,33 @@
       }
       .languages-item {
         display: flex;
-        width: 100%;
+        // width: 100%;
+        height: 25px;
+        align-items: center;
+        p {
+          font-size: $p-font-size;
+          width: 45%;
+          font-family: "Lato", sans-serif;
+          text-align: center;
+          margin-left: 4px;
+          margin-top: 0px;
+          margin-bottom: 0px;
+        }
       }
       .interest-wrapper {
-        height: 150px;
+        height: 80px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         .interest-item {
           display: flex;
           justify-content: center;
-          width: calc((100% - 20px) / 2);
+          // width: calc((100% - 20px) / 2);
         }
       }
     }
   }
-  @media screen and (max-width: 620px) {
+  @media screen and (max-width: 640px) {
     .first-column {
       width: 100%;
       margin: 0px;

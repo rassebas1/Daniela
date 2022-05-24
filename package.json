@@ -11,8 +11,10 @@
     "feather-icons": "^4.29.0",
     "sass": "^1.51.0",
     "vue": "^3.2.33",
+    "vue-feather": "^2.0.0",
     "vue-feather-icons": "^5.1.0",
-    "vue-router": "^4.0.15"
+    "vue-router": "^4.0.15",
+    "vue-star-rating": "^2.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

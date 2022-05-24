@@ -46,32 +46,32 @@
   $h1-gray-color: #b0acab;
   .entry-container {
     display: flex;
+    max-width: 600px;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     margin: 15px 5px;
     .entry-title {
-      width: 100%;
       flex-direction: row;
       display: flex;
       justify-content: space-between;
     }
     h3 {
       margin: 0px;
-      width: 60%;
+
       font-size: $h3-font-size;
       color: $gray-color;
       text-align: left;
     }
     p {
-      text-align: left;
+      text-align: justify;
       font-size: $p-font-size;
       color: $internal-gray-color;
     }
     span {
       width: 20%;
       text-align: left;
-      font-size: $p-font-size;
+      font-size: 12px;
     }
   }
 </style>
