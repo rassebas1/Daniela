@@ -5,6 +5,7 @@
   import { defineComponent } from "@vue/runtime-core";
   import DaniLanding from "./view/DaniLanding.vue";
   import Brochure from "./view/Brochure.vue";
+  import NavBar from "./components/NavBar.vue";
 
   export default defineComponent({
     setup() {
@@ -14,16 +15,12 @@
       };
       return { navbar };
     },
-    components: { Brochure, DaniLanding },
+    components: { Brochure, DaniLanding, NavBar },
   });
 </script>
 
 <template>
-  <nav class="navbar-fixed">
-    <div class="navbar-item" v-for="(item, index) in navbar" :key="index">
-      <router-link :to="item">{{ index }}</router-link>
-    </div>
-  </nav>
+  <NavBar :navbarItem="navbar"></NavBar>
   <router-view />
 </template>
 
