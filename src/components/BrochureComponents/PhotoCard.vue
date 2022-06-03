@@ -1,6 +1,11 @@
 <template>
   <div class="photo-card__container">
-    <img :src="showCase.path" alt="image" />
+    <img
+      v-for="item in showCase.path"
+      :key="item"
+      :src="showCase.path"
+      alt="image"
+    />
     <p>{{ showCase.description }}</p>
   </div>
 </template>
@@ -12,7 +17,11 @@
     props: {
       cardInfo: {
         type: Object,
-        default: { path: "", description: "" },
+        default: {
+          sectionName: "SECTION_NAME",
+          path: ["NO_IMAGE", "NO_IMAGE"],
+          description: "NO_DESCRIPTION",
+        },
       },
     },
     setup(props) {

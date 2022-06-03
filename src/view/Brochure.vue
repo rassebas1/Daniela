@@ -1,67 +1,20 @@
 <template>
   <div class="brochure-container">
-    <PhotoCard
-      v-for="item in allCardInfo"
-      :cardInfo="item"
-      :key="item.sectionName"
-    ></PhotoCard>
+    <Tab></Tab>
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent } from "vue";
-  import PhotoCard from "../components/PhotoCard.vue";
+  import { defineComponent, computed } from "vue";
+  import { useStore } from "vuex";
+  import PhotoCard from "../components/BrochureComponents/PhotoCard.vue";
+  import Swiper from "../components/BrochureComponents/Swiper.vue";
+  import Tab from "../components/TabComponent/Tab.vue";
   export default defineComponent({
     name: "Brochure",
-    components: { PhotoCard },
+    components: { PhotoCard, Swiper, Tab },
     setup() {
-      const allCardInfo = [
-        {
-          sectionName: "Banos",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Exterior",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Inrerior",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Cocinas",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Jardines",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Recamara",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Garaje",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Rascacielos",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-        {
-          sectionName: "Creativo",
-          path: "https://picsum.photos/200/300",
-          description: "this1 descripttion1",
-        },
-      ];
-      return { allCardInfo };
+      
+      return {};
     },
   });
 </script>
@@ -79,9 +32,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
     align-content: space-around;
     margin-top: 20px;
     height: auto;
     padding: 8px;
+    & .swiper {
+      width: 400px;
+      height: 400px;
+      margin-top: 20px;
+    }
   }
 </style>

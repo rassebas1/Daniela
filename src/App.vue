@@ -2,17 +2,23 @@
   // This starter template is using Vue 3 <script setup> SFCs
   // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 
-  import { defineComponent } from "@vue/runtime-core";
+  import { defineComponent, onMounted } from "@vue/runtime-core";
+  import { useStore } from "vuex";
   import DaniLanding from "./view/DaniLanding.vue";
   import Brochure from "./view/Brochure.vue";
   import NavBar from "./components/NavBar.vue";
 
   export default defineComponent({
     setup() {
+      const store = useStore();
       const navbar = {
         HOME: "/",
         BROCHURE: "/brochure",
+        ABOUT: "/about",
       };
+      onMounted(async () => {
+        await store.dispatch("getImagePaths");
+      });
       return { navbar };
     },
     components: { Brochure, DaniLanding, NavBar },

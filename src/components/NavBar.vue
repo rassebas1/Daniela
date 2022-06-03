@@ -18,6 +18,7 @@
         default: {
           HOME: "/",
           BROCHURE: "/brochure",
+          ABOUT: "/about",
         },
       },
     },
