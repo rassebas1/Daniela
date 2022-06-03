@@ -56,6 +56,7 @@
       const onSlideChange = () => {
         console.log("slide change");
       };
+     
       return {
         swiperSlides,
         onSlideChange,

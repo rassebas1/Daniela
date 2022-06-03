@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <Swiper class="home-swiper" :CardInfo="categories"></Swiper>
+    <Swiper  :CardInfo="categories"></Swiper>
     <div v-for="item in homeItems" :key="item.title" class="home-item">
       <img :src="item.url" alt="HOME_IMG" />
       <h1>{{ item.title }}</h1>
@@ -35,18 +35,18 @@
       });
       const categories = ref([
         {
-          sectionName: "baños",
-          paths: ref<string[]>([]),
+          name: "baños",
+          paths: [""],
           description: "",
         },
         {
-          sectionName: "recamaras",
-          paths: ref<string[]>([]),
+          name: "recamaras",
+          paths: [""],
           description: "recamaras",
         },
         {
-          sectionName: "cocinas",
-          paths: ref<string[]>([]),
+          name: "cocinas",
+          paths: [""],
           description: "cocinas",
         },
       ]);
@@ -67,8 +67,8 @@
         homeItems.value.map((item, index) => {
           item.url = paths.value[index];
         });
-        categories.value.map((item, index) => {
-          item.paths.concat(paths.value[index + 2]);
+        categories.value.map((item,index) => {
+          item.paths = paths.value[index+3];
         });
         console.log(homeItems.value);
         console.log(categories.value);
