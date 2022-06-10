@@ -9,8 +9,8 @@
 
 <script lang="ts">
   import { defineComponent } from "vue";
-  import FirstColumn from "../components/FirstColumn.vue";
-  import RigthColumn from "../components/RigthColumn.vue";
+  import FirstColumn from "../components/CVComponents/FirstColumn.vue";
+  import RigthColumn from "../components/CVComponents/RigthColumn.vue";
 
   export default defineComponent({
     name: "DanielaLanding",
